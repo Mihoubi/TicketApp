@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket - Main</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="../static/commonStyles.css"/>
+    <script>
+        function navigateToPage(pageName) {
+            window.location.href = "/" + pageName;
+        }
+
+        function navigateToPay(pageName) {
+            fetch('/checkDB/' + pageName)
+                .then(response => response.json())
+                .then(isExist => {
+                    if (!isExist) {
+                        alert("Your balance is not enough! Please load money to your account.");
+                    } else {
+                        window.location.href = "/pay/" + pageName;
+                    }
+                })
+                .catch(error => {
+                    console.error("An error occurred while...", error);
+                });
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(7,3,12,0.75);">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{'/login'}">Ticket</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{'/login'}">Home</a>
+                </li>
+            </ul>
+
+        </div>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{'/logout'}">Logout</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{'/profilePage'}">Account</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div style="text-align: center;">
+    <span style="margin-right: 5px; color: white; font-size: 30px;">Cash :</span>
+    <span th:text="${price}" style="color: white; font-size: 40px;"></span>
+</div>
+<div style="text-align: center;">
+    <span style="margin-right: 5px; color: white; font-size: 30px;">Last Bus :</span>
+    <span th:text="${lastBus}" style="color: white; font-size: 40px;"></span>
+</div>
+
+<div style="display: flex; justify-content: space-around; margin-top: 120px; color: white; font-size: 25px;">
+    <div style="height: 250px; width: 150px; background-color: rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center;" >
+        <p style="text-align: center" ><b>11ÜS</b></p>
+        <button type="button" class="btn btn-dark" onclick="navigateToPage('11us')">INFORMATION</button>
+        <button type="button" class="btn btn-dark" onclick="navigateToPay('11us')" style="margin-top: 1px;">GET ON BUS</button>
+    </div>
+
+    <div style="height: 250px; width: 150px; background-color: rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center;">
+        <p style="text-align: center"><b>132P</b></p>
+        <button type="button" class="btn btn-dark" onclick="navigateToPage('132p')">INFORMATION</button>
+        <button type="button" class="btn btn-dark" onclick="navigateToPay('132p')" style="margin-top: 1px;">GET ON BUS</button>
+    </div>
+
+    <div style="height: 250px; width: 150px; background-color: rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center;">
+        <p style="text-align: center"><b>522ST</b></p>
+        <button type="button" class="btn btn-dark" onclick="navigateToPage('522st')">INFORMATION</button>
+        <button type="button" class="btn btn-dark" onclick="navigateToPay('522st')" style="margin-top: 1px;">GET ON BUS</button>
+    </div>
+
+    <div style="height: 250px; width: 150px; background-color: rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center;">
+        <p style="text-align: center"><b>UM73</b></p>
+        <button type="button" class="btn btn-dark" onclick="navigateToPage('um73')">INFORMATION</button>
+        <button type="button" class="btn btn-dark" onclick="navigateToPay('um73')" style="margin-top: 1px;">GET ON BUS</button>
+    </div>
+
+    <div style="height: 250px; width: 150px; background-color: rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center;">
+        <p style="text-align: center"><b>18D</b></p>
+        <button type="button" class="btn btn-dark" onclick="navigateToPage('18d')">INFORMATION</button>
+        <button type="button" class="btn btn-dark" onclick="navigateToPay('18d')" style="margin-top: 1px;">GET ON BUS</button>
+    </div>
+</div>
+
+<!--  This is for background. -->
+<style th:inline="text">
+    body{
+        background: url(https://images.unsplash.com/photo-1538054274783-71563ab54168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80) no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
+
+</body>
+</html>

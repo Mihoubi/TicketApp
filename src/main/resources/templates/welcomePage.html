@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket - Welcome</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/commonStyles.css">
+
+  <script>
+    function navigateToLogin() {
+      window.location.href = "/login";
+    }
+
+    function navigateToRegister() {
+      window.location.href = "/register";
+    }
+
+  </script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgba(7,3,12,0.75);">
+  <div class="container-fluid">
+    <a class="navbar-brand" th:href="@{'/'}">Ticket</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{'/'}">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+  <div style="margin-left: auto; text-align: center; margin-top: 100px;">
+    <h3 style="color: white; font-size: 50px; background-color: rgba(0,0,0,0.25);">Welcome To Your Ticket Application!</h3>
+    <button type="button" class="btn btn-dark" style="margin-right: 25px; margin-top: 50px; font-size: 20px;" onclick="navigateToLogin()">Login</button>
+    <button type="button" class="btn btn-dark" style="margin-top: 50px; font-size: 20px;" onclick="navigateToRegister()">Register</button>
+  </div>
+
+<!--  This is for background. -->
+<style th:inline="text">
+  body{
+    background: url(https://images.unsplash.com/photo-1538054274783-71563ab54168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80) no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
+
+</body>
+</html>
