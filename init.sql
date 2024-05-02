@@ -6,11 +6,11 @@ CREATE TABLE IF NOT EXISTS bus (
                                    name varchar(255),
     PRIMARY KEY (id)
     );
---CREATE TABLE IF NOT EXISTS programinglanguage (
---    name varchar(255),
---    rating bigint,
---    PRIMARY KEY (name)
---    );
+CREATE TABLE IF NOT EXISTS programinglanguage (
+    name varchar(255),
+    rating bigint,
+    PRIMARY KEY (name)
+    );
 CREATE TABLE IF NOT EXISTS passenger (
                                          id bigint AUTO_INCREMENT,
                                          last_bus varchar(255),
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS passenger (
     user_id bigint,
     PRIMARY KEY (id)
     );
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS  user (
                                     id bigint AUTO_INCREMENT,
                                     name varchar(255),
     password varchar(255),
